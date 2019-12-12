@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ilya/precache-manifest.8cd002f501a3e31fb1105c968f551fff.js"
+  "/ilya/precache-manifest.5b7744ac630264124b1decdc171651ac.js"
 );
 
 self.addEventListener('message', (event) => {

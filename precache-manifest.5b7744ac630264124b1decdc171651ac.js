@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "848bf0352a4ed93ae9f3dfdff3241b29",
+    "revision": "ef108bcaf8ec1a3407000dfa2d054839",
     "url": "/ilya/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ilya/static/css/2.64a99b10.chunk.css"
   },
   {
-    "revision": "2513915fd24ae85a2834",
+    "revision": "e6cda49bc41601c375e9",
     "url": "/ilya/static/css/main.8353a8d4.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ilya/static/js/2.90b08766.chunk.js.LICENSE"
   },
   {
-    "revision": "2513915fd24ae85a2834",
-    "url": "/ilya/static/js/main.7ad212bb.chunk.js"
+    "revision": "e6cda49bc41601c375e9",
+    "url": "/ilya/static/js/main.686ef420.chunk.js"
   },
   {
     "revision": "378e05e58c68a1b5a832",
