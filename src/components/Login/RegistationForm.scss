@@ -1,0 +1,79 @@
+.registration {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+
+  &__captcha {
+    margin-top: 25px;
+  }
+
+  &__captcha-text-danger {
+    position: absolute;
+    color: red;
+    font-size: 13px;
+    top: 78px;
+  }
+
+  div {
+    position: relative;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__text-danger {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    font-size: 11px;
+    color: red;
+  }
+
+  &__input {
+    width: 199px;
+    height: 25px;
+    margin-top: 25px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    outline: none;
+
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0 20px rgb(25, 140, 232)!important;
+    }
+
+    &::placeholder {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.25;
+    }
+
+    &:focus,
+    &:active {
+      background: transparent;
+    }
+  }
+
+  &__button {
+    color: #010101;
+    font-size: 14px;
+    font-weight: 500;
+    width: 199px;
+    height: 36px;
+    box-shadow: 0 11px 13px 5px rgba(0, 51, 91, 0.1);
+    background: #fff;
+    border: none;
+    align-self: center;
+    margin: auto;
+    margin-top: 30px;
+
+    &:hover {
+      background: lightgray;
+      font-weight: bold;
+    }
+  }
+}

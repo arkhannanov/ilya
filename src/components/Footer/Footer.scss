@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  height: 101px;
+  box-shadow: 0 11px 13px 5px rgba(151, 157, 164, 0.1);
+
+  &__content {
+    color: #a8a8a8;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 52px 0 0 78px;
+  }
+
+  &__navigation {
+    width: 100px;
+    border-left: 1px solid #ededed;
+    position: relative;
+
+    &-image {
+      position: absolute;
+      top: 50px;
+      left: 40px;
+    }
+  }
+}

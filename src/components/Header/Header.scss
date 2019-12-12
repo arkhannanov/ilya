@@ -1,0 +1,105 @@
+.header {
+  max-width: 960px;
+  height: 90px;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  background: white;
+  box-shadow: 0 11px 13px 5px rgba(151, 157, 164, 0.1);
+  margin-top: 107px;
+  position: relative;
+
+  &__modal-close {
+    background: transparent;
+    font-size: 20px;
+    color: red;
+    border: none;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  &__logo {
+    background: #1d90ed;
+
+    &-active {
+      background: white;
+    }
+  }
+
+  &__item {
+    width: 120px;
+    text-align: center;
+    height: 90px;
+    display: table;
+    vertical-align: middle;
+
+    &_active {
+      background: #1d90ed;
+      font-weight: bold;
+      width: 120px;
+      text-align: center;
+      height: 90px;
+      display: table;
+      vertical-align: middle;
+    }
+
+    &-link {
+      margin-top: 140px;
+      color: #111111;
+      text-decoration: none!important;
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 14px;
+
+    }
+
+    &:hover {
+      background: lightgray!important;
+      font-weight: bold;
+    }
+
+    &:active,
+    &:focus {
+      background: #1d90ed;
+      font-weight: bold;
+    }
+  }
+
+  &__location {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: flex;
+    flex-direction: row;
+
+    &-city {
+      margin-left: 10px;
+    }
+  }
+
+  &__modal {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    width:347px;
+    height:160px;
+    display: block;
+  }
+
+  &__content {
+    margin-top: 5px;
+    padding: 4px;
+    height: 30px;
+    background: white;
+    box-shadow: 0 11px 13px 5px rgba(151, 157, 164, 0.1);
+    cursor: pointer;
+
+    &:hover {
+      background: lightgray!important;
+      font-weight: bold;
+    }
+  }
+}

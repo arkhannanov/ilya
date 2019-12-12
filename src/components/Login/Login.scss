@@ -1,0 +1,224 @@
+.login {
+  width: 240px;
+  height: 296px;
+  box-shadow: 0 11px 13px 5px rgba(151, 157, 164, 0.1);
+  background-color: #198ce8;
+  display: flex;
+  flex-direction: column;
+
+  &__registration-header {
+   border: none;
+  }
+
+  div {
+    position: relative;
+  }
+
+  &__text-danger {
+    position: absolute;
+    top: 50px;
+    left: 21px;
+    font-size: 11px;
+    color: red;
+  }
+
+  &_active {
+    width: 240px;
+    height: 296px;
+    box-shadow: 0 11px 13px 5px rgba(151, 157, 164, 0.1);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      position: relative;
+    }
+  }
+
+  &__title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 19px 0 0 22px;
+
+    &_active {
+      color: black;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 19px 0 0 22px;
+    }
+  }
+
+  &__login-input {
+    width: 199px;
+    height: 25px;
+    margin-left: 21px;
+    margin-top: 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+
+    &_active {
+      width: 199px;
+      height: 25px;
+      margin-left: 21px;
+      margin-top: 20px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      outline: none;
+
+      &::placeholder {
+        color: black;
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.25;
+      }
+    }
+
+    &::placeholder {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.25;
+    }
+  }
+
+  &__password-input {
+    width: 199px;
+    height: 25px;
+    margin-left: 21px;
+    margin-top: 25px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+
+    &_active {
+      width: 199px;
+      height: 25px;
+      margin-left: 21px;
+      margin-top: 25px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      outline: none;
+
+      &::placeholder {
+        color: black;
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.25;
+      }
+    }
+
+    &::placeholder {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.25;
+    }
+
+    &::placeholder {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.25;
+    }
+  }
+
+  &__button {
+    color: #010101;
+    font-size: 14px;
+    font-weight: 500;
+    width: 199px;
+    height: 36px;
+    box-shadow: 0 11px 13px 5px rgba(0, 51, 91, 0.1);
+    background: #fff;
+    border: none;
+    align-self: center;
+    margin-top: 30px;
+
+    &_active {
+      color: #010101;
+      font-size: 14px;
+      font-weight: 500;
+      width: 199px;
+      height: 36px;
+      box-shadow: 0 11px 13px 5px rgba(0, 51, 91, 0.1);
+      background: #fff;
+      align-self: center;
+      margin-top: 30px;
+      border: 1px solid black;
+    }
+
+    &:hover {
+      background: lightgray;
+      font-weight: bold;
+    }
+  }
+
+  &__remember {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-left: 17px;
+
+    &-content {
+      font-size: 10px;
+      color: #ffffff;
+      font-weight: 500;
+      line-height: 12px;
+      padding-left: 3px;
+
+      &_active {
+        font-size: 10px;
+        color: black;
+        font-weight: 500;
+        line-height: 12px;
+        padding-left: 3px;
+      }
+    }
+  }
+
+  &__registration {
+    margin-top: 7px;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: underline;
+    border: none;
+    background: transparent;
+    outline: none;
+
+    &-modal-content {
+      background: #198ce8 !important;
+    }
+
+    &-header {
+      text-align: center;
+      margin-top: 20px;
+      background: #198ce8;
+      color: #ffffff;
+      font-size: 16px;
+    }
+
+    &-body {
+      background: #198ce8;
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &-footer {
+      background: #198ce8;
+      border-top: none !important;
+    }
+
+  }
+
+}
+
+.close {
+  display: none;
+}

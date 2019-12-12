@@ -1,0 +1,25 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 960px;
+  margin: auto;
+  min-height: 100%;
+
+  &__header {
+    position: relative;
+  }
+
+  &__news-login-container {
+    display: flex;
+    flex-direction: row;
+    width: 960px;
+    height: 285px;
+    margin: auto;
+    margin-top: 5px;
+    background: transparent;
+    justify-content: space-between;
+    flex: 1 0 auto;
+  }
+
+}

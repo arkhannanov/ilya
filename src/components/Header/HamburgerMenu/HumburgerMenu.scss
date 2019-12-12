@@ -1,0 +1,99 @@
+.nav {
+  position: absolute;
+  top: 125px;
+  right: 180px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.multi-level, .item ul, .nav input[type="checkbox"] {
+  display: none;
+}
+#menu:checked ~ .multi-level, .item input:checked ~ ul {
+  display: block;
+}
+//
+.multi-level {
+  background: white;
+  border: 1px solid black!important;
+  position: relative;
+  margin-top: 75px;
+  pointer-events: auto;
+  width: 300px!important;
+}
+/*Arrow*/
+
+.arrow {
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  float: left!important;
+  z-index: 10;
+  margin: 17px 1em 0 1em;
+}
+.item input + .arrow {
+  transform: rotate(-90deg);
+  transition: 0.1s;
+}
+.item input:checked + .arrow {
+  transform: rotate(0deg);
+  transition: 0.1s;
+}
+
+/*Styles*/
+
+label:hover {
+  cursor: pointer;
+}
+label {
+  width: 400px!important;
+  display: block;
+  z-index: 3;
+  position: relative;
+}
+.nav {
+  width: 400px!important;
+  background-color: transparent;
+  overflow-x: hidden;
+}
+
+#nav-icon {
+  position: relative;
+  left: 275px;
+  font-size: 28px;
+  line-height: 50px;
+  padding-left: 1em;
+  color: black;
+  background-color: transparent;
+  pointer-events: auto;
+  width: 20px!important;
+}
+
+.nav ul, .nav li, label {
+  line-height: 50px;
+  margin: 0;
+  padding: 0 0;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  font-weight: 100;
+  width: 400px!important;
+}
+.item ul {
+  padding: 0 0.25em;
+}
+.nav li a {
+  line-height: 50px;
+  margin: 0;
+  padding: 0 2.6em;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  font-weight: 100;
+}
+
+.sub-item-ul li a {
+  margin-left: 60px;
+  padding: 0;
+}
+
