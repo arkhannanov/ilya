@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://arkhannanov.github.io/ilya",
-  "engines": {
-    "node": "12.13.0",
-    "npm": "6.12.0"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.3",
