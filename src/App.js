@@ -14,12 +14,7 @@ import Header from "./components/Header/Header";
 import HamburgerMenu from "./components/Header/HamburgerMenu/HamburgerMenu";
 
 class App extends Component {
-
-    componentDidMount() {
-
-        this.props.history.push("/home");
-    }
-
+    
     render() {
 
         return (
