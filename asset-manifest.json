@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/ilya/static/css/main.8353a8d4.chunk.css",
+    "main.js": "/ilya/static/js/main.7ad212bb.chunk.js",
+    "main.js.map": "/ilya/static/js/main.7ad212bb.chunk.js.map",
+    "runtime-main.js": "/ilya/static/js/runtime-main.e6afbcb7.js",
+    "runtime-main.js.map": "/ilya/static/js/runtime-main.e6afbcb7.js.map",
+    "static/css/2.64a99b10.chunk.css": "/ilya/static/css/2.64a99b10.chunk.css",
+    "static/js/2.90b08766.chunk.js": "/ilya/static/js/2.90b08766.chunk.js",
+    "static/js/2.90b08766.chunk.js.map": "/ilya/static/js/2.90b08766.chunk.js.map",
+    "index.html": "/ilya/index.html",
+    "precache-manifest.8cd002f501a3e31fb1105c968f551fff.js": "/ilya/precache-manifest.8cd002f501a3e31fb1105c968f551fff.js",
+    "service-worker.js": "/ilya/service-worker.js",
+    "static/css/2.64a99b10.chunk.css.map": "/ilya/static/css/2.64a99b10.chunk.css.map",
+    "static/css/main.8353a8d4.chunk.css.map": "/ilya/static/css/main.8353a8d4.chunk.css.map",
+    "static/js/2.90b08766.chunk.js.LICENSE": "/ilya/static/js/2.90b08766.chunk.js.LICENSE",
+    "static/media/acticle-image.png": "/ilya/static/media/acticle-image.61c74cac.png",
+    "static/media/index.css": "/ilya/static/media/fira-sans.e3f3d9c6.eot",
+    "static/media/jw-active.svg": "/ilya/static/media/jw-active.304110d5.svg",
+    "static/media/jw.svg": "/ilya/static/media/jw.5a57fe2a.svg",
+    "static/media/laptop.png": "/ilya/static/media/laptop.6e91665b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6afbcb7.js",
+    "static/css/2.64a99b10.chunk.css",
+    "static/js/2.90b08766.chunk.js",
+    "static/css/main.8353a8d4.chunk.css",
+    "static/js/main.7ad212bb.chunk.js"
+  ]
+}
