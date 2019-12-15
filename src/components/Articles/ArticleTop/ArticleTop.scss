@@ -1,9 +1,21 @@
 .article-top {
   margin: auto;
-  margin-top: 63px;
   margin-left: 59px;
+  height: 320px;
   width: 850px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  //&__image {
+  //  height: 297px;
+  //}
+}
+
+.article__advertisement {
+  height: 50px;
+  text-align: center;
+  border: 1px solid black;
+  line-height: 50px;
+  color: #198ce8;
 }

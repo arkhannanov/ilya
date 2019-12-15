@@ -1,0 +1,39 @@
+.article-full {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+
+    &-title {
+      color: #000000;
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 20px;
+      width: 300px;
+      margin-left: 40px;
+    }
+  }
+
+  &__content {
+    text-align: justify;
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    font-weight: bold;
+
+    &-title {
+      font-size: 20px;
+    }
+
+    &-items {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

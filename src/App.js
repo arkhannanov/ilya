@@ -12,37 +12,59 @@ import Pagination from "./components/Pagination/Pagination";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import HamburgerMenu from "./components/Header/HamburgerMenu/HamburgerMenu";
+import ScrollUpButton from "react-scroll-up-button";
+import './components/ScrollUpButton/ScrollUpButton.scss';
+import image from './assets/images/footer-navigation.png'
+import ArticleFull from "./components/Articles/ArticleFull/ActileFull";
 
 class App extends Component {
 
+    componentDidMount() {
+        this.props.history.push(`/home`);
+    }
+
     render() {
 
+        const {articles} = this.props;
         return (
             <div className='app'>
+                <ScrollUpButton ContainerClassName='ScrollUpButton__Container'/>
                 <div className='app__header'>
                     <Header/>
                     <HamburgerMenu/>
                 </div>
-                <Route path='/home'
-                       render={() => {
-                           return (
-                               <div>
-                                   <div className='app__news-login-container'>
-                                       <News/>
-                                       <Login/>
-                                   </div>
-                                   < Articles/>
-                                   < Pagination/>
-                               </div>)
-                       }}/>
+                <div className='app__content'>
+                    <Route path='/home'
+                           render={() => {
+                               return (
+                                   <div>
+                                       <div className='app__news-login-container'>
+                                           <News/>
+                                           <Login/>
+                                       </div>
+                                       <Articles/>
+                                   </div>)
+                           }}/>
 
-                <Route exact path={'/news/1' || '/news/2'|| '/news/3'|| '/news/4'|| '/news/5'|| '/news/6'|| '/news/7'|| '/news/8'|| '/news/9'|| '/news/10'}
-                       render={() => {
-                           return (
-                               <div>
-                               </div>)
-                       }}/>
+                    {articles.map(artile =>
+                        <Route exact
+                               path={`/artiles/${artile.id}`}
+                               render={() => {
+                                   return (
+                                       <div>
+                                           <ArticleFull title={artile.title} content={artile.content}/>
+                                       </div>)
+                               }}/>
+                    )}
 
+                    <Route exact
+                           path={'/news/1' || '/news/2' || '/news/3' || '/news/4' || '/news/5' || '/news/6' || '/news/7' || '/news/8' || '/news/9' || '/news/10'}
+                           render={() => {
+                               return (
+                                   <div>
+                                   </div>)
+                           }}/>
+                </div>
                 <Footer/>
             </div>
         )
@@ -50,8 +72,13 @@ class App extends Component {
 };
 
 
+const mapStateToProps = (state) => ({
+    articles: state.articles.articles
+})
+
+
 let AppContainer = compose(
-    connect(),
+    connect(mapStateToProps, {}),
     withRouter
 )(App);
 

@@ -3,12 +3,17 @@ import './ArticleContent.scss';
 import dateImage from './../../../assets/images/date-image.png';
 import comments from './../../../assets/images/comments.png';
 import button from './../../../assets/images/article-button.png';
+import {NavLink} from "react-router-dom";
+import NewsItem from "../../News/NewsItem/NewsItem";
+import Slider from "react-slick";
 
-const ArticleContent = () => {
+const ArticleContent = (props) => {
+
+    const {id, title, content} = props;
+
     return (
         <div className='article-content'>
-            <div className='article-content__title'>Самые востребованные
-                профессии в 2019 г
+            <div className='article-content__title'>{title}
             </div>
             <div className='article-content__options'>
                 <div className='article-content__options-time'>
@@ -20,14 +25,12 @@ const ArticleContent = () => {
                     <div className='article-content__options-comments-content'>Комментария</div>
                 </div>
             </div>
-            <div className='article-content__content'>Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim
+            <div className='article-content__content'>{content}
             </div>
-            <button className='article-content__button'>
-                <img src={button} alt="Article-button" className='article-content__button-image' />
-                <div className='article-content__button-content'>&nbsp;Читать Далее </div>
-            </button>
+            <NavLink to={`/artiles/${id}`} className='article-content__button'> <button className='article-content__button-button'>
+                <img src={button} alt="Article-button" className='article-content__button-image'/>
+                <div className='article-content__button-content'>&nbsp;Читать Далее</div>
+            </button></NavLink>
         </div>
     )
 };

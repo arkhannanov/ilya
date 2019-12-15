@@ -1,5 +1,7 @@
 .article-content {
   width: 400px;
+  display: flex;
+  flex-direction: column;
 
   &__title {
     color: #000000;
@@ -47,30 +49,41 @@
     font-size: 14px;
     font-weight: 400;
     width: 326px;
+    height: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &__button {
+    align-self: flex-end;
+    margin-right: 40px;
     margin-top: 20px;
-    width: 177px;
-    height: 48px;
+    width: 140px;
+    height: 38px;
     background-color: #2196f3;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     border: none;
     line-height: 1px;
     position: relative;
 
+    &-button {
+      border: none;
+      background-color: transparent;
+    }
+
     &-image {
-     position: absolute;
-      top: 14px;
-      left: 30px;
+      position: absolute;
+      top: 11px;
+      left: 20px;
     }
 
     &-content {
       position: absolute;
-      top: 24px;
-      left: 55px;
+      top: 20px;
+      left: 48px;
+      color: #ffffff;
     }
   }
 }
