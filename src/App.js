@@ -16,6 +16,7 @@ import ScrollUpButton from "react-scroll-up-button";
 import './components/ScrollUpButton/ScrollUpButton.scss';
 import image from './assets/images/footer-navigation.png'
 import ArticleFull from "./components/Articles/ArticleFull/ActileFull";
+import LoginPage from "./components/Login/LoginPage/LoginPage";
 
 class App extends Component {
 
@@ -56,6 +57,16 @@ class App extends Component {
                                        </div>)
                                }}/>
                     )}
+
+                    {<Route exact
+                            path={`/login`}
+                            render={() => {
+                                return (
+                                    <div>
+                                        <LoginPage/>
+                                    </div>)
+                            }}/>
+                    }
 
                     <Route exact
                            path={'/news/1' || '/news/2' || '/news/3' || '/news/4' || '/news/5' || '/news/6' || '/news/7' || '/news/8' || '/news/9' || '/news/10'}

@@ -6,6 +6,8 @@ import ModalBody from "reactstrap/lib/ModalBody";
 import Modal from "reactstrap/lib/Modal";
 import {Button, ModalFooter} from "reactstrap";
 import RegistrationForm from "./RegistrationForm";
+import { withRouter } from 'react-router';
+import {compose} from "redux";
 
 const validate = values => {
     const errors = {}
@@ -135,6 +137,7 @@ const ReduxForm = reduxForm({form: 'login', validate})(loginForm);
 const Login = (props) => {
     const onSubmitLogin = (formData) => {
         console.log(formData);
+        props.history.push('/login');
     }
     return (<div>
             <ReduxForm onSubmit={onSubmitLogin} isLoading={props.isLoading}/>
@@ -146,4 +149,4 @@ const mapStateToProps = (state) => ({
     isLoading: state.login.isLoading
 })
 
-export default connect(mapStateToProps, {})(Login);
+export default compose(connect(mapStateToProps, {}),withRouter)(Login);
