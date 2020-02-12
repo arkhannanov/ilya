@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import './RegistationForm.scss';
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import Recaptcha from 'react-recaptcha';
+import {registration} from "../../redux/login-reducer";
 
 const validate = values => {
     const errors = {}
@@ -79,7 +80,7 @@ export class registrationForm extends Component {
     render() {
 
         const {password} = this.state;
-        const {handleSubmit, pristine, submitting} = this.props;
+        const {handleSubmit, error, pristine, submitting} = this.props;
 
         return (
             <form className="registration" onSubmit={handleSubmit}>
@@ -115,6 +116,13 @@ export class registrationForm extends Component {
                 <button className="registration__button" type='submit'
                         disabled={pristine || submitting}>Регистрация
                 </button>
+                {error ? <div className='registration__error'>
+                    {error}
+                </div>
+                    :<div className='registration__error_no-error'>
+                        Нет ошибки
+                    </div>
+                }
             </form>
         )
     }
@@ -122,18 +130,31 @@ export class registrationForm extends Component {
 
 const ReduxForm = reduxForm({form: 'registration', validate})(registrationForm);
 
-const Registration = (props) => {
-    const onSubmitRegistration = (formData) => {
+
+export class Registration extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    onSubmitRegistration = (formData) => {
+        this.props.registration( formData.login, formData.email, formData.password)
         console.log(formData);
     }
-    return (<div>
-            <ReduxForm onSubmit={onSubmitRegistration} isLoading={props.isLoading}/>
-        </div>
-    )
+
+
+    render() {
+
+        return (<div>
+                <ReduxForm onSubmit={this.onSubmitRegistration} isLoading={this.props.isLoading}/>
+            </div>
+        )
+    }
 }
+
 
 const mapStateToProps = (state) => ({
     isLoading: state.login.isLoading
 })
 
-export default connect(mapStateToProps, {})(Registration);
+export default connect(mapStateToProps, {registration})(Registration);

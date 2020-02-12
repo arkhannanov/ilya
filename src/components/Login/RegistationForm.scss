@@ -3,6 +3,18 @@
   display: flex;
   flex-direction: column;
 
+  &__error {
+    font-size: 13px;
+    color: red;
+    margin-top: 15px;
+
+    &_no-error {
+      margin-top: 15px;
+      font-size: 13px;
+      color: transparent;
+    }
+  }
+
 
   &__captcha {
     margin-top: 25px;

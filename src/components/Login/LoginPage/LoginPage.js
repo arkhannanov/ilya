@@ -1,5 +1,9 @@
 import React from 'react';
 import './LoginPage.scss';
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {login, toggleRegistrationWindowAction} from "../../../redux/login-reducer";
+import {Login} from "../Login";
 
 const LoginFull = (props) => {
 
@@ -11,7 +15,7 @@ const LoginFull = (props) => {
                          src='http://cdn.onlinewebfonts.com/svg/download_258083.png' alt="Avatar" height={100}
                          width={100}/>
                     <div className='login-full__header-content'>
-                        <div className='login-full__header-content-name'>Кир Котов</div>
+                        <div className='login-full__header-content-name'>{props.login}</div>
                         <div className='login-full__header-content-job'>Дизайнер, Frontend-разработчик</div>
                     </div>
                 </div>
@@ -47,4 +51,9 @@ const LoginFull = (props) => {
     )
 };
 
-export default LoginFull;
+const mapStateToProps = (state) => ({
+    login: state.login.login
+})
+
+
+export default connect(mapStateToProps, {})(LoginFull);

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.scss';
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, Router, withRouter} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 import store from "./redux/redux-store";
 import './App.scss';
@@ -17,11 +17,21 @@ import './components/ScrollUpButton/ScrollUpButton.scss';
 import image from './assets/images/footer-navigation.png'
 import ArticleFull from "./components/Articles/ArticleFull/ActileFull";
 import LoginPage from "./components/Login/LoginPage/LoginPage";
+import history from './history'
 
 class App extends Component {
 
     componentDidMount() {
-        this.props.history.push(`/home`);
+        console.log(this.props.isAuth);
+        if (this.props.isAuth === false) {
+
+            history.push("/home");
+        }
+
+        if (this.props.isAuth === true) {
+
+            history.push("/login");
+        }
     }
 
     render() {
@@ -84,7 +94,8 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => ({
-    articles: state.articles.articles
+    articles: state.articles.articles,
+    isAuth: state.login.isAuth
 })
 
 
@@ -97,7 +108,9 @@ let AppContainer = compose(
 const SKYTRACK = (props) => {
     return <BrowserRouter>
         <Provider store={store}>
+            <Router history={history}>
             <AppContainer/>
+            </Router>
         </Provider>
     </BrowserRouter>
 }
