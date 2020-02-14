@@ -4,7 +4,11 @@ import {connect} from "react-redux";
 import './RegistationForm.scss';
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import Recaptcha from 'react-recaptcha';
-import {registration} from "../../redux/login-reducer";
+import {registration, toggleRegistrationSuccessAction, toggleRegistrationWindowAction} from "../../redux/login-reducer";
+import ModalBody from "reactstrap/lib/ModalBody";
+import {Button, ModalFooter} from "reactstrap";
+import Modal from "reactstrap/lib/Modal";
+import RegistrationSuccess from "./RegistationSuccses";
 
 const validate = values => {
     const errors = {}
@@ -41,6 +45,7 @@ export class registrationForm extends Component {
 
         this.state = {
             password: '',
+            modal: false
         }
     }
 
@@ -67,6 +72,13 @@ export class registrationForm extends Component {
         </div>
     )
 
+    toggle = (e) => {
+        e.preventDefault();
+        this.props.toggleRegistrationSuccessAction();
+        this.props.toggleRegistrationWindowAction();
+    }
+
+
     renderPassword = ({input, label, type, meta: {touched, error, warning}}) => (<div>
 
             <input {...input} placeholder={label}
@@ -79,51 +91,64 @@ export class registrationForm extends Component {
 
     render() {
 
-        const {password} = this.state;
-        const {handleSubmit, error, pristine, submitting} = this.props;
+        const {password, modal} = this.state;
+        const {handleSubmit, error, pristine, submitting, toggleRegistrationSuccess} = this.props;
+
+        console.log(toggleRegistrationSuccess);
 
         return (
-            <form className="registration" onSubmit={handleSubmit}>
-                <Field
-                    name="login"
-                    component={this.renderRegistration}
-                    label='логин'
-                    type="text"
-                />
-                <Field
-                    name="email"
-                    component={this.renderRegistration}
-                    label='e-mail'
-                    type="text"
-                />
-                <Field
-                    name="password"
-                    component={this.renderPassword}
-                    label='пароль'
-                    type="password"
-                    onChange={this.handleChange}
-                />
-                <PasswordStrengthMeter password={password}/>
-                <Field
-                    name="confirmPassword"
-                    component={this.renderRegistration}
-                    label='подтверждение пароля'
-                    type="password"
-                />
-                <div className="registration__captcha">
-                    <Field name='recaptcha' component={this.Captcha}/>
-                </div>
-                <button className="registration__button" type='submit'
-                        disabled={pristine || submitting}>Регистрация
-                </button>
-                {error ? <div className='registration__error'>
-                    {error}
-                </div>
-                    :<div className='registration__error_no-error'>
-                        Нет ошибки
+            <div className="registation-container">
+                <form className="registration" onSubmit={handleSubmit}>
+                    <Field
+                        name="login"
+                        component={this.renderRegistration}
+                        label='логин'
+                        type="text"
+                    />
+                    <Field
+                        name="email"
+                        component={this.renderRegistration}
+                        label='e-mail'
+                        type="text"
+                    />
+                    <Field
+                        name="password"
+                        component={this.renderPassword}
+                        label='пароль'
+                        type="password"
+                        onChange={this.handleChange}
+                    />
+                    <PasswordStrengthMeter password={password}/>
+                    <Field
+                        name="confirmPassword"
+                        component={this.renderRegistration}
+                        label='подтверждение пароля'
+                        type="password"
+                    />
+                    <div className="registration__captcha">
+                        <Field name='recaptcha' component={this.Captcha}/>
                     </div>
-                }
-            </form>
+                    <button className="registration__button" type='submit'
+                            disabled={pristine || submitting}>Регистрация
+                    </button>
+                    {error ? <div className='registration__error'>
+                            {error}
+                        </div>
+                        : <div className='registration__error_no-error'>
+                            Нет ошибки
+                        </div>
+                    }
+                </form>
+                <Modal isOpen={toggleRegistrationSuccess} className="registration-success"
+                       contentClassName="login__registration-modal-content">
+                    <ModalBody className="login__registration-body">
+                        <RegistrationSuccess/>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="danger" onClick={this.toggle}>OK</Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
         )
     }
 }
@@ -138,15 +163,18 @@ export class Registration extends Component {
     }
 
     onSubmitRegistration = (formData) => {
-        this.props.registration( formData.login, formData.email, formData.password)
-        console.log(formData);
+        this.props.registration(formData.login, formData.email, formData.password)
     }
 
 
     render() {
 
         return (<div>
-                <ReduxForm onSubmit={this.onSubmitRegistration} isLoading={this.props.isLoading}/>
+                <ReduxForm onSubmit={this.onSubmitRegistration} isLoading={this.props.isLoading}
+                           toggleRegistrationSuccess={this.props.toggleRegistrationSuccess}
+                           toggleRegistrationSuccessAction={this.props.toggleRegistrationSuccessAction}
+                           toggleRegistrationWindowAction={this.props.toggleRegistrationWindowAction}
+                />
             </div>
         )
     }
@@ -154,7 +182,8 @@ export class Registration extends Component {
 
 
 const mapStateToProps = (state) => ({
-    isLoading: state.login.isLoading
+    isLoading: state.login.isLoading,
+    toggleRegistrationSuccess: state.login.toggleRegistrationSuccess
 })
 
-export default connect(mapStateToProps, {registration})(Registration);
+export default connect(mapStateToProps, {registration, toggleRegistrationSuccessAction, toggleRegistrationWindowAction})(Registration);

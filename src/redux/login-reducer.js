@@ -8,6 +8,7 @@ const TOOGLE_REGISRTATION_WINDOW = 'TOOGLE_REGISRTATION_WINDOW';
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DAT';
 const SET_LOGIN_REDIRECT = 'SET_LOGIN_REDIRECT';
 const SET_USER_LOGIN = "SET_USER_LOGIN";
+const TOOGLE_REGISRTATION_SUCCESS = 'TOOGLE_REGISRTATION_SUCCESS';
 
 let initialState = {
     isLoading: false,
@@ -15,7 +16,8 @@ let initialState = {
     isAuth: false,
     token: null,
     loginRedirect: false,
-    login: null
+    login: null,
+    toggleRegistrationSuccess: false
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -45,6 +47,12 @@ const loginReducer = (state = initialState, action) => {
                 toggleRegistrationWindow: !state.toggleRegistrationWindow
             }
         }
+        case TOOGLE_REGISRTATION_SUCCESS: {
+            return {
+                ...state,
+                toggleRegistrationSuccess: !state.toggleRegistrationSuccess
+            }
+        }
         case SET_AUTH_USER_DATA: {
 
             return {
@@ -64,6 +72,7 @@ export const setAuthUserData = (token, isAuth) => ({
 });
 export const setIsLoading = (isLoading) => ({type: SET_IS_LOADING, isLoading});
 export const toggleRegistrationWindowAction = () => ({type: TOOGLE_REGISRTATION_WINDOW});
+export const toggleRegistrationSuccessAction = () => ({type: TOOGLE_REGISRTATION_SUCCESS});
 export const setLoginRedirect = (isRedirect) => ({type: SET_LOGIN_REDIRECT, isRedirect});
 export const setUserLogin = (login) => ({type: SET_USER_LOGIN, login});
 
@@ -102,7 +111,7 @@ export const registration = (login, email, password,) => {
             console.log(response);
             if (response.data.success === true) {
                 console.log("Registation success")
-                dispatch(toggleRegistrationWindowAction());
+                dispatch(toggleRegistrationSuccessAction());
             } else if (response.data.success === false) {
                 console.log("Ошибка");
                 dispatch(change('registration', 'login', ''));
@@ -110,9 +119,9 @@ export const registration = (login, email, password,) => {
                 dispatch(change('registration', 'password', ''));
                 dispatch(change('registration', 'mPassword', ''));
                 dispatch(stopSubmit("registration", {_error: 'Такой пользователь уже зарегистрирован.'}));
-                setTimeout(() => {
-                    dispatch(toggleRegistrationWindowAction());
-                }, 2000);
+                // setTimeout(() => {
+                //     dispatch(toggleRegistrationWindowAction());
+                // }, 2000);
             }
         })
     }
