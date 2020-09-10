@@ -30,6 +30,7 @@ const validate = values => {
         errors.date = "Поле является обязательным";
     }
     if (!values.phone) {
+        console.log('ggg')
         errors.phone = "Поле является обязательным";
     }
     if (!values.email) {
@@ -43,29 +44,6 @@ const validate = values => {
 
 
 export class Form extends Component {
-
-
-    renderSmallTextField = ({
-                           label,
-                           input,
-                           meta: {touched, invalid, error},
-                           classes,
-                           ...custom
-                       }) => (
-            <MuiThemeProvider theme={theme}>
-                <TextField
-                    label={label}
-                    placeholder={label}
-                    className={clsx( classes.textField, label==='Мобильный телефон' && classes.textFieldMobilePhone, label==='E-mail' && classes.email)}
-                    error={touched && invalid}
-                    helperText={touched && error}
-                    variant="outlined"
-                    color="secondary"
-                    {...input}
-                    {...custom}
-                />
-            </MuiThemeProvider>
-    );
 
     renderTextField = ({
                            label,
@@ -187,6 +165,7 @@ export class Form extends Component {
                         name="date"
                         component={this.renderDateField}
                         type="date"
+                        label='День рождения'
                         classes={classes}
                     />
 
