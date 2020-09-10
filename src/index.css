@@ -1,8 +1,7 @@
-@import './fonts/fonts.scss';
 
 body {
     margin: 0;
-    font-family: "FiraSans", "Segoe UI", "Roboto", "Oxygen",
+    font-family: "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif !important;
     -webkit-font-smoothing: antialiased;

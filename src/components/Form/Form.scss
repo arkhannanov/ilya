@@ -1,0 +1,57 @@
+.form {
+
+  width: 100%;
+
+  &__header {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  &__field-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__field {
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: content-box;
+  }
+
+  &__submit-button {
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    background: green;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: black;
+    float: right;
+  }
+
+
+
+  &__text-danger {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    font-size: 13px;
+    color: red;
+  }
+
+}
+
+.close {
+  display: none;
+}
+
+.form-wrapper {
+  margin: auto;
+  min-width: 600px;
+  width: 600px;
+  margin-top: 50px;
+}
